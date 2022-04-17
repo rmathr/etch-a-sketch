@@ -14,10 +14,34 @@
         <img src="./images/canvas.png" alt="" class="header-img">
     </header>
     
-    <div id="controlButton">
-        <button id="resetButton">Reset</button>
-    </div>
-    <div id="container">
-    </div>
+    <main class="main-content">
+        <section class="controls">
+            <div id="controlButton">
+                <button id="resetButton">Reset</button>
+            </div>
+            
+            <form class="color-options" id="colorOptions">
+                <input type="radio" id="rainbow" name="color" value="rainbow">
+                <label>Rainbow</label>
+                <input type="radio" id="randomColor" name="color" value="randomColor">
+                <label>Random color</label>
+                <input type="radio" id="pickOne" name="color" value="pickOne">
+                <label>Pick one!</label>
+                <input type="submit" id="colorSubmit" name="color" value="Submit">
+            </form>
+
+
+            <form class="color-picker" id="colorPicker">
+                <input type="color" id="selectedColor" name="chosenColor" value="#ff0080">
+                <label class="color-label">Pick a color!</label>
+                <input type="submit" id="chosenColor" name="chosenColor" value="Submit">
+            </form>
+            
+        </section>
+        
+        <div id="container">
+        </div>
+    </main>
+    
 </body>
 </html>
