@@ -1,9 +1,18 @@
 const square = document.createElement('div');
-const squaresArray = [];
 
-
-for(let i = 0; i <= 16; i++){
-    container.appendChild(square.cloneNode(true));
+for(let i = 0; i < 1024; i++){
     square.classList.add('square');
-    console.log(i);
+    container.appendChild(square.cloneNode(true));  
 }
+const createdSquares = document.querySelectorAll('.square');
+const squaresArray = [...createdSquares];
+
+
+squaresArray.forEach(square => square.addEventListener('mouseover', () => {
+    square.classList.add('square-hovered');
+}));
+
+
+// createdSquares.forEach(square => square.addEventListener('mouseover', () => {
+//     square.classList.add('square-hovered');
+// }));

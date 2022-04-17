@@ -21,8 +21,14 @@ body {
 }
 
 .square {
-    width: 200px;
-    height: 200px;
+    width: 25px;
+    height: 25px;
     background-color: olive;
     border: 1px solid cyan;
+    transition: all 0.2s ease
 }
+
+.square-hovered{
+    background-color: blueviolet;
+}
+
