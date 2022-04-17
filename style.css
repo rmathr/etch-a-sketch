@@ -6,29 +6,43 @@
 
 body {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background-color: antiquewhite;
 }
 
 #container {
     display: flex;
     flex-wrap: wrap;
-    width: 800px;
-    height: 800px;
-    box-shadow: 0 0 1rem red;
+    margin-top: 24px;
+    width: 600px;
+    height: 600px;
+    box-shadow: 0 0 1rem #525151;
     
 }
 
 .square {
-    width: 25px;
-    height: 25px;
-    background-color: olive;
-    border: 1px solid cyan;
+    /* width: 25px;
+    height: 25px; */
+    background-color: white;
+    border: 1px solid black;
     transition: all 0.2s ease
 }
 
-.square-hovered{
+/* .square-hovered{
     background-color: blueviolet;
+} */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 80%;
 }
 
+.header-img {
+    width: 220px;
+    height: auto;
+}
