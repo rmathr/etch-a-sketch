@@ -1,6 +1,7 @@
 const square = document.createElement('div');
 const resetButton = document.getElementById('resetButton');
 let numSquares = 25;
+let numSquaresSelected;
 let colorOptionSelected;
 let colorSubmitValue;
 let randColor;
@@ -8,11 +9,31 @@ let randColor;
 const colorOptions = document.getElementById('colorOptions');
 const colorPicker = document.getElementById('colorPicker');
 const colorSubmit = document.getElementById('colorSubmit');
+const numberSquares = document.getElementById('numberSquares');
+
+const blackColorSelector = document.querySelector('input[type=checkbox]');
+blackColorSelector.addEventListener('change', () => {
+    if (blackColorSelector.checked) {
+        colorOptions.classList.add('show');
+      
+      
+        console.log("Checkbox is checked..");
+    } else {
+        colorOptions.classList.remove('show');
+      console.log("Checkbox is not checked..");
+    }
+  });
+
+
+
+
+
+
 
 colorOptions.addEventListener('submit', () => {
     colorOptionSelected = document.querySelector('input[name="color"]:checked').value;
     if(colorOptionSelected == 'pickOne'){
-        colorPicker.classList.add('select-color');
+        //colorPicker.classList.toggle('show');
         //colorOptions.style.display = 'none';
         getNewColor();
         resetSketch(numSquares);
@@ -24,14 +45,17 @@ colorOptions.addEventListener('submit', () => {
         console.log(randColor); 
     } else {
         resetSketch(numSquares);
-    }
-    
-    
+    }   
+
 });
+
+
+
 
 function handleForm(event) { event.preventDefault(); }
 colorOptions.addEventListener('submit', handleForm);
 colorPicker.addEventListener('submit', handleForm);
+numberSquares.addEventListener('submit', handleForm);
 
 colorPicker.addEventListener('submit', getNewColor);
 
@@ -39,9 +63,17 @@ function getNewColor(){
     colorSubmitValue = document.getElementById('selectedColor').value;
     resetSketch(numSquares);
     generateHoverEffect(squaresArray,colorSubmitValue);
+    colorPicker.classList.toggle('show');
 }
 
-
+numberSquares.addEventListener('submit', () => {
+    numSquaresSelected = document.getElementById('numberOfSquares').value;
+    if (numSquaresSelected){
+        numSquares = numSquaresSelected;
+    } 
+        resetButtonHandle(numSquares);
+        numberSquares.classList.remove('show');
+});
 
 
 
@@ -102,7 +134,8 @@ function resetButtonHandle(){
             container.removeChild(square);
             square.classList.remove('square');
         });
-        numSquares = +prompt('Please define the number of squares');
+        numberSquares.classList.add('show');
+        //numSquares = +prompt('Please define the number of squares');
         generateSquares(numSquares);
         createdSquares = document.querySelectorAll('.square');
         squaresArray = [...createdSquares];
