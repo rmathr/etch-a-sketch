@@ -15,22 +15,44 @@ const blackColorSelector = document.querySelector('input[type=checkbox]');
 blackColorSelector.addEventListener('change', () => {
     if (blackColorSelector.checked) {
         colorOptions.classList.add('show');
-      
+        resetSketch(numSquares);
+        generateHoverEffect(squaresArray,"rainbow");
       
         console.log("Checkbox is checked..");
     } else {
         colorOptions.classList.remove('show');
-      console.log("Checkbox is not checked..");
+        resetSketch(numSquares); 
+        generateHoverEffect(squaresArray,"rgb(56, 54, 54)");
+        console.log("Checkbox is not checked..");
     }
   });
 
 
 
 
+  colorOptions.addEventListener('submit', getColorOption);
 
 
+// colorOptions.addEventListener('submit', () => {
+//     colorOptionSelected = document.querySelector('input[name="color"]:checked').value;
+//     if(colorOptionSelected == 'pickOne'){
+//         //colorPicker.classList.toggle('show');
+//         //colorOptions.style.display = 'none';
+//         getNewColor();
+//         resetSketch(numSquares);
+//         console.log(colorSubmitValue);
+//     } else if (colorOptionSelected =='randomColor'){
+//         randColor = `rgb(${Math.floor(Math.random()*255 +1)},${Math.floor(Math.random()*255 +1)},${Math.floor(Math.random()*255 +1)})`;
+//         resetSketch(numSquares);
+//         generateHoverEffect(squaresArray,randColor);
+//         console.log(randColor); 
+//     } else {
+//         resetSketch(numSquares);
+//     }   
 
-colorOptions.addEventListener('submit', () => {
+// });
+
+function getColorOption(){
     colorOptionSelected = document.querySelector('input[name="color"]:checked').value;
     if(colorOptionSelected == 'pickOne'){
         //colorPicker.classList.toggle('show');
@@ -45,9 +67,10 @@ colorOptions.addEventListener('submit', () => {
         console.log(randColor); 
     } else {
         resetSketch(numSquares);
-    }   
-
-});
+        generateHoverEffect(squaresArray,"rainbow");
+    }
+    return colorOptionSelected;   
+}
 
 
 
@@ -105,8 +128,13 @@ generateHoverEffect(squaresArray);
 function generateHoverEffect(squaresArray,color){
     if (color === undefined){
         squaresArray.forEach(square => square.addEventListener('mouseover', () => {
-            square.style.backgroundColor = `rgb(${Math.floor(Math.random()*255 +1)},${Math.floor(Math.random()*255 +1)},${Math.floor(Math.random()*255 +1)})`;
+            //square.style.backgroundColor = `rgb(${Math.floor(Math.random()*255 +1)},${Math.floor(Math.random()*255 +1)},${Math.floor(Math.random()*255 +1)})`;
+            square.style.backgroundColor = 'rgb(56, 54, 54)';
         }));
+    } else if(color == "rainbow"){
+        squaresArray.forEach(square => square.addEventListener('mouseover', () => {
+        square.style.backgroundColor = `rgb(${Math.floor(Math.random()*255 +1)},${Math.floor(Math.random()*255 +1)},${Math.floor(Math.random()*255 +1)})`;
+    } ));
     } else {
         squaresArray.forEach(square => square.addEventListener('mouseover', () => {
             square.style.backgroundColor = color;
