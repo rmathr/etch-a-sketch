@@ -17,56 +17,72 @@
     
     <main class="main-content">
         <section class="controls">
-            <div id="controlButton">
-                <button id="resetButton">Reset</button>
-            </div>
+            <header class="control-header">
+                Customize
+            </header> 
             
             <form class="number-squares" id="numberSquares">
-                <label id="sizeInfo"></label>
-                <input type="range" id="numberOfSquares" name="numSquares" min="1" max="64">
+                <label id="squareSizeInfo">Square Dimension</label>
+                <div id="squareContainer">
+                    <label id="sizeInfo"></label>
+                    <input type="range" id="numberOfSquares" name="numSquares" min="1" max="64">
+                </div>
+                
                 <!-- <input type="submit" id="numberSubmit" name="numSquares" value="Submit"> -->
             </form>
             
+            <div id="colors-eraser">
+                <form class="black-color">
+                    <label>Black</label>
+                    <label class="switch">
+                        <input type="checkbox" id="blackColorSelector">
+                        <span class="slider round"></span>
+                      </label>
+                    <label>Color</label>
+                </form> 
+                <div id="eraser">
+                    <!-- <a id="eraserSelect"><img src="./images/eraser.png" id="eraserImage" alt=""></a> -->
+                    <button id="eraserSelect" class="eraser"></button>
+                    <!-- <input type="submit" id="eraserSelect" name="eraser" value="Eraser"> -->
+                </div>
+            </div>
+            
 
-            <form class="black-color">
-                <label>Black</label>
-                <label class="switch">
-                    <input type="checkbox" id="blackColorSelector">
-                    <span class="slider round"></span>
-                  </label>
-                <label>Color</label>
-            </form>
 
+            <div class="colors-config" id="colors-config">
+                <form class="color-options" id="colorOptions">
+                    <div class="radio-button">
+                        <label>
+                        <input type="radio" id="rainbow" name="color" value="rainbow">
+                        Rainbow</label>
+                        <label>
+                        <input type="radio" id="randomColor" name="color" value="randomColor">
+                        Random color</label>
+                        <label>
+                        <input type="radio" id="pickOne" name="color" value="pickOne">
+                        Pick one!</label>
+                        
+                        
+                    </div>
+                </form>
+    
+                <form class="color-picker" id="colorPicker">
+                    <input type="color" id="selectedColor" name="chosenColor" value="#0040FF">
+                    <!-- <label class="color-label">Pick a color!</label> -->
+                    <!-- <input type="submit" id="chosenColor" name="chosenColor" value="Confirm"> -->
+                </form>
 
-
-            <form class="color-options" id="colorOptions">
-                <div class="radio-button">
-                    <label>
-                    <input type="radio" id="rainbow" name="color" value="rainbow">
-                    Rainbow</label>
-                    <label>
-                    <input type="radio" id="randomColor" name="color" value="randomColor">
-                    Random color</label>
-                    <label>
-                    <input type="radio" id="pickOne" name="color" value="pickOne">
-                    Pick one!</label>
-
+            </div> 
+            
+            
+            
+                
+    
+                <div id="controlButton">
+                    <button id="resetButton">Clear</button>
                 </div>
                 
-                <input type="submit" id="colorSubmit" name="color" value="Select">
-            </form>
-
-
-            <form class="color-picker" id="colorPicker">
-                <input type="color" id="selectedColor" name="chosenColor" value="#0040FF">
-                <!-- <label class="color-label">Pick a color!</label> -->
-                <input type="submit" id="chosenColor" name="chosenColor" value="Confirm">
-            </form>
-            
-            <div id="eraser">
-                <button id="eraserSelect" class="eraser">Eraser</button>
-                <!-- <input type="submit" id="eraserSelect" name="eraser" value="Eraser"> -->
-            </div>
+                        
 
         </section>
         

@@ -62,8 +62,8 @@ body {
 
 .color-picker{
     display: none;
-    align-items: center;
-    margin: 12px 0;
+    align-items: flex-end;
+    margin: 12px 0 6px 0;
 }
 .color-options{
     display: none;
@@ -78,25 +78,38 @@ body {
   margin-left: 12px;
 }
 
-#resetButton, .eraser{
-  width: 150px;
+#resetButton{
+  width: 120px;
   height: 30px;
-  background-color: rgb(56, 54, 54);
-  color: white;
+  font-weight: bold;
+  color: #dc3545;
   font-size: 18px;
   text-transform: uppercase;
   letter-spacing: 4px;
-  border: none;
+  border: 1px solid #dc3545;
   border-radius: 8px;
   cursor: pointer;
   box-shadow: 0 0 0.5rem #525151;
   transition: all 0.05s ease;
 }
 
-#resetButton:hover, .eraser:hover{
+.eraser{
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 2px solid rgb(56, 54, 54);
+  /* background-color: #525151; */
+  /* padding: 6px; */
+}
+
+#resetButton:hover{
   transform: scale(1.1);
 }
 
+#eraserImage{
+  width: 20px;
+  height: auto;
+}
 
 .number-squares {
     margin: 8px 0;
@@ -111,7 +124,7 @@ body {
   height: 410px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   align-content: center;
   background-color: whitesmoke;
@@ -122,17 +135,40 @@ body {
   border-radius: 10px;
 }
 
+.control-header{
+  width: 100%;
+  border-bottom: 1px solid rgb(56, 54, 54);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+}
+
 #numberSquares{
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 32px;
+  font-size: 28px;
+}
+
+#squareSizeInfo{
+  text-transform: uppercase;
+  font-size: 18px;
+  font-style: italic;
+}
+
+#squareContainer{
+  display: flex;
+  align-items: center;
+}
+
+#sizeInfo{
+  margin-right: 8px;
 }
 
 .black-color{
   display: flex;
   align-items: center;
-  margin-bottom: 24px;
+  margin-right: 12px;
 }
 
 .black-color label:first-child{
@@ -143,6 +179,11 @@ body {
   margin-left: 8px;
 }
 
+#colors-eraser{
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
 
 .radio-button{
   display: flex;
@@ -166,6 +207,10 @@ body {
 #colorSubmit:hover, #chosenColor:hover{
   background-color: rgba(79,187,72, 0.4);
   transform: scale(1.1);
+}
+
+.colors-config {
+  display: flex;
 }
 
 input[type="radio"]{
@@ -212,7 +257,7 @@ input[type="radio"]{
 
 
 .eraser-clicked{
-  background-color: rgba(56, 54, 54, 0.7);
+  background-color: rgba(56, 54, 54, 0.2);
   color: white;
 }
 

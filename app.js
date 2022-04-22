@@ -35,11 +35,19 @@ eraserSelect.addEventListener('click', handleForm);
 
 eraserSelect.addEventListener('click', startEraser)
 
+eraserSelect.innerHTML = '<img src="./images/eraser.png" id="eraserImage">';
+
 function startEraser () {
     if(eraserSelect.classList.contains('eraser-clicked')){
         eraserSelect.classList.remove('eraser-clicked');
         if(blackColorSelector.checked){
-            generateHoverEffect(squaresArray,"rainbow");   
+            if (colorOptionSelected =='randomColor'){
+                generateHoverEffect(squaresArray, randColor);  
+            } else if (colorOptionSelected == 'pickOne') {
+                generateHoverEffect(squaresArray,colorSubmitValue);
+            } else {
+                generateHoverEffect(squaresArray,"rainbow");
+            }   
         } else {
             generateHoverEffect(squaresArray,"rgb(56, 54, 54)"); 
         }
@@ -50,7 +58,7 @@ function startEraser () {
 }
 
 
-  colorOptions.addEventListener('submit', getColorOption);
+  colorOptions.addEventListener('change', getColorOption);
 
 function getColorOption(){
     colorOptionSelected = document.querySelector('input[name="color"]:checked').value;
@@ -79,10 +87,10 @@ function getColorOption(){
 
 function handleForm(event) { event.preventDefault(); }
 colorOptions.addEventListener('submit', handleForm);
-colorPicker.addEventListener('submit', handleForm);
+colorPicker.addEventListener('change', handleForm);
 numberSquares.addEventListener('submit', handleForm);
 
-colorPicker.addEventListener('submit', getNewColor);
+colorPicker.addEventListener('change', getNewColor);
 
 function getNewColor(){
     colorSubmitValue = document.getElementById('selectedColor').value;
